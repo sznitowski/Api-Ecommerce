@@ -3,8 +3,8 @@ const validator = require('fastest-validator');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-//Signup Post: /user/sign-up 
-function signUp(req, res) {
+//Signup User: /api/user/sign-up 
+function registerUser(req, res) {
 
     models.User.findOne({ where: { email: req.body.email } }).then(result => {
         if (result) {
@@ -25,7 +25,6 @@ function signUp(req, res) {
                     models.User.create(user).then(result => {
                         res.status(201).json({
                             message: 'User created successfully',
-                            //user: result
                         })
                     }).catch(error => {
                         res.status(500).json({
@@ -43,8 +42,8 @@ function signUp(req, res) {
     })
 
 }
-//Login Post: /user/login
-function login(req, res) {
+//Login User: /api/user/login
+function loginUser(req, res) {
     models.User.findOne({ where: { email: req.body.email } }).then(user => {
         if (user === null) {
             res.status(401).json({
@@ -76,7 +75,7 @@ function login(req, res) {
     });
 }
 
-// Find One User Get: /user/:id
+// FindOneUser Get: /api/user/:id
 function findUserById(req, res) {
     const id = req.params.id;
 
@@ -85,7 +84,7 @@ function findUserById(req, res) {
             res.status(200).json(result);
         } else {
             res.status(404).json({
-                message: 'Post not found',
+                message: 'User not found',
             })
         }
         res.status(200).json(result);
@@ -97,7 +96,7 @@ function findUserById(req, res) {
     })
 }
 
-//Find all Users Get: /user
+//FindallUsers Get: /api/user
 function findAllUsers(req, res) {
     models.User.findAll().then(result => {
         res.status(200).json({
@@ -112,7 +111,7 @@ function findAllUsers(req, res) {
     });
 }
 
-//UpdateUser Path: /user/:id
+//UpdateUser Patch: /api/user/:id
 function updateUser(req, res) {
     const id = req.params.id;
     const updatedUser = {
@@ -140,7 +139,7 @@ function updateUser(req, res) {
     models.User.update(updatedUser, { where: { id: id } }).then(result => {
         res.status(200).json({
             message: "User updated successfully",
-            post: updatedUser
+            User: updatedUser
         });
     }).catch(error => {
         res.status(200).json({
@@ -150,7 +149,7 @@ function updateUser(req, res) {
     })
 }
 
-//deleteUser Delete: /user/:id
+//deleteUser Delete: /api/user/:id
 function deleteUser(req, res) {
     const id = req.params.id;
     models.User.destroy({ where: { id: id } }).then(result => {
@@ -178,8 +177,8 @@ function deleteUser(req, res) {
 }
 
 module.exports = {
-    signUp,
-    login,
+    registerUser,
+    loginUser,
     findUserById,
     findAllUsers,
     updateUser,

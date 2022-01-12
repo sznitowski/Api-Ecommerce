@@ -1,10 +1,10 @@
 const express = require('express');
-const { signUp, login, findUserById, findAllUsers, updateUser, deleteUser } = require('../controllers/user.controller');
+const { registerUser, loginUser, findUserById, findAllUsers, updateUser, deleteUser } = require('../controllers/user.controller');
 
 const router = express.Router();
 
-router.post('/sign-up', signUp);
-router.post('/login', login);
+router.post('/sign-up', registerUser);
+router.post('/login', loginUser);
 router.get('/:id', findUserById);
 router.get('/', findAllUsers);
 router.patch('/:id', updateUser);
