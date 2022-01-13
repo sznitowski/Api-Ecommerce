@@ -1,0 +1,13 @@
+.footer-container {
+    justify-content: center;
+    color: white; 
+}
+i{
+    color: white;
+    padding: 18px;
+    padding-left: 0px;
+}
+i:hover{
+    transform: scale(1.6);
+    color: rgb(53, 47, 45);
+}
