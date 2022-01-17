@@ -1,2 +1,0 @@
-# evTecnica-FullStack
-api-crud

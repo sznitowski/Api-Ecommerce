@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { Link } from 'react-router-dom';
-import { Button, Col, Row, Form } from 'react-bootstrap';
-import MainScreen from '../../components/MainScreen';
-import ErrorMessage from '../../components/ErrorMessage.js/ErrorMessage';
-import LandingPage from '../LandingPage/LandingPage';
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader/Loader";
+import ErrorMessage from "../../components/ErrorMessage.js/ErrorMessage";
+import MainScreen from "../../components/MainScreen";
+import { Form, Button } from "react-bootstrap";
+import { register } from "../../actions/userActions";
 
-const RegisterPage = () => {
+
+function RegisterPage({ history }) {
 
     const [firstName, setfirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -16,47 +16,36 @@ const RegisterPage = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [message, setMessage] = useState(null);
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
+
+
+    const dispatch = useDispatch();
+
+    const userRegister = useSelector((state) => state.userRegister);
+    const { loading, error, userInfo } = userRegister;
+
+
+    useEffect(() => {
+        if (userInfo) {
+            history.push("/user");
+        }
+    }, [history, userInfo]);
 
     const submitHandler = async (e) => {
         e.preventDefault();
-
         if (password !== confirmPassword) {
-            setMessage('Las contraseñas no coinciden')
-        } else {
-            setMessage(null)
-            try {
-                const config = {
-                    headers: {
-                        "content-Type": "application/json",
-                    },
-                };
+            setMessage("Passwords do not match");
+        } else dispatch(register(firstName, lastName, email, age, password, confirmPassword));
+    };
 
-                setLoading(true)
-
-                const { data } = await axios.post(
-                    "/api/user/sign-up",
-                    { firstName, lastName, email, age, password },
-                    config
-                );
-
-                setLoading(false)
-                localStorage.setItem("userInfo", JSON.stringify(data));
-            } catch (error) {
-                setError(error.response.data.message)
-                setLoading(false)
-            }
-        }
-
-    }
 
     return (
-        <MainScreen title='Registrarse'>
-            <div className='loginContainer'>
+        <MainScreen title='Regist'>
+
+            <div className='registContainer'>
                 {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
                 {message && <ErrorMessage variant="danger">{message}</ErrorMessage>}
                 {loading && <Loader />}
+
                 <Form onSubmit={submitHandler}>
 
                     <Form.Group className="mb-3" controlId="firstName">
@@ -127,7 +116,6 @@ const RegisterPage = () => {
 
             </div>
         </MainScreen>
-
 
     )
 }

@@ -2,8 +2,9 @@ const models = require('../models');
 const validator = require('fastest-validator');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const generateToken = require("../utilis/generateToken");
 
-//Signup User: /api/user/sign-up 
+//RegisterUser Post: /api/user/sign-up 
 function registerUser(req, res) {
 
     models.User.findOne({ where: { email: req.body.email } }).then(result => {
@@ -14,17 +15,22 @@ function registerUser(req, res) {
         } else {
             bcryptjs.genSalt(10, function (err, salt) {
                 bcryptjs.hash(req.body.password, salt, function (err, hash) {
+                    const id = req.body.id;
                     const user = {
                         firstName: req.body.firstName,
                         lastName: req.body.lastName,
                         email: req.body.email,
                         age: req.body.age,
-                        password: hash
+                        password: hash,
+                        token: generateToken(id)
+                        
                     }
 
                     models.User.create(user).then(result => {
                         res.status(201).json({
+                            user,
                             message: 'User created successfully',
+                            
                         })
                     }).catch(error => {
                         res.status(500).json({
@@ -42,7 +48,8 @@ function registerUser(req, res) {
     })
 
 }
-//Login User: /api/user/login
+
+//Login Post: /api/user/login
 function loginUser(req, res) {
     models.User.findOne({ where: { email: req.body.email } }).then(user => {
         if (user === null) {
@@ -52,14 +59,21 @@ function loginUser(req, res) {
         } else {
             bcryptjs.compare(req.body.password, user.password, function (err, result) {
                 if (result) {
+
                     const token = jwt.sign({
+                        _id: user._id,
+                        expiresIn: 3000,
                         email: user.email,
-                        userId: user.id
-                    }, process.env.JWT_KEY, function (err, token) {
+                        password: user.password,
+                        token: generateToken(user._id)
+
+                    }, process.env.JWT_SECRET , function (err, token) {
                         res.status(200).json({
+                            user,
                             message: "Authentication successful!",
-                            token: token
+                            token
                         });
+                        
                     });
                 } else {
                     res.status(401).json({
