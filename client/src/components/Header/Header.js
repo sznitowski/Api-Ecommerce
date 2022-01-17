@@ -1,8 +1,23 @@
-import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap'
-//import './header.css';
-import { Link } from "react-router-dom"
+
+import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, Link } from "react-router-dom";
+import { logout } from "../../actions/userActions";
 
 const Header = () => {
+
+    const history = useNavigate();
+
+    const dispath = useDispatch()
+
+    const userLogin = useSelector(state => state.userLogin)
+    const userInfo  = userLogin;
+
+    const logoutHandler = () => {
+        dispath(logout())
+        history.push("/")
+    }
+
     return (
         <div className='header-container'>
             <Navbar bg="info" expand="lg" variant="dark">
@@ -32,15 +47,17 @@ const Header = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="/posts">
-                                <Link to='/posts'>
-                                    My Posts
+                            <Nav.Link href="/user">
+                                <Link to='/user'>
+                                    Users
                                 </Link>
 
                             </Nav.Link>
 
-                            <Nav.Link href="#action1">My Profile</Nav.Link>
-                            <Nav.Link href="#action2">Logout</Nav.Link>
+                            <Nav.Link
+                                onClick={logoutHandler}>
+                                Logout
+                            </Nav.Link>
                         </Nav>
 
                     </Navbar.Collapse>

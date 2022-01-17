@@ -1,55 +1,45 @@
-import { useEffect, useState } from "react";
-import { Button, Form, Row, Col } from "react-bootstrap"
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import MainScreen from "../../components/MainScreen";
-import axios from "axios";
-import "./loginScreen.css";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage.js/ErrorMessage";
+import MainScreen from "../../components/MainScreen";
+import { login } from "../../actions/userActions";
+import { Button, Form, Row, Col } from "react-bootstrap"
+import "./loginScreen.css";
 
-const LoginPage = ({ history }) => {
+function LoginPage({ history }) {
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(false)
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
+    const dispatch = useDispatch();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { loading, error, userInfo } = userLogin;
+
+    useEffect(() => {
+        if (userInfo) {
+            history.push("/user");
+        }
+    }, [history, userInfo]);
 
     const submitHandler = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
-         try {
-            const config = {
-                headers: {
-                  "Content-type": "application/json",
-                },
-              };
-              console.log(data)
-             setLoading(true) 
-          
-              const { data } = await axios.post(
-                "/api/user/login",
-                { email, password },
-                config
-              );
+        dispatch(login(email, password));
+    };
 
-            console.log(data)
-            localStorage.setItem("userInfo", JSON.stringify(data));
-            setLoading(false)
-            
-        } catch (error) {
-            setError(error.response.data.message)
-            setLoading(false)
-        }
-    }; 
-
-    return <MainScreen title="Iniciar Sesion">
+    return <MainScreen title="Login">
 
         <div className="loginContainer">
 
-            {error && <ErrorMessage variant='danger'>{error}</ErrorMessage>}
+            {error && <ErrorMessage variant='danger'>
+            {error}</ErrorMessage>}
             {loading && <Loader />}
+
             <Form onSubmit={submitHandler}>
+
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
