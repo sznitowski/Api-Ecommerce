@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage.js/ErrorMessage";
@@ -18,10 +19,12 @@ function LoginPage({ history }) {
     const userLogin = useSelector((state) => state.userLogin);
     const { loading, error, userInfo } = userLogin;
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        if (userInfo) {
-            history.push("/user");
-        }
+         if (userInfo) {
+            navigate("/user")
+        } 
     }, [history, userInfo]);
 
     const submitHandler = async (e) => {

@@ -6,16 +6,16 @@ import { logout } from "../../actions/userActions";
 
 const Header = () => {
 
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const dispath = useDispatch()
 
     const userLogin = useSelector(state => state.userLogin)
-    const userInfo  = userLogin;
+    const userInfo = userLogin;
 
     const logoutHandler = () => {
         dispath(logout())
-        history.push("/")
+        navigate("/")
     }
 
     return (

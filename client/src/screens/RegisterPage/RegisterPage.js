@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage.js/ErrorMessage";
@@ -23,12 +24,14 @@ function RegisterPage({ history }) {
     const userRegister = useSelector((state) => state.userRegister);
     const { loading, error, userInfo } = userRegister;
 
-
-    useEffect(() => {
-        if (userInfo) {
-            history.push("/user");
-        }
+     const navigate = useNavigate();
+     
+     useEffect(() => {
+         if (userInfo) {
+             navigate("/user") 
+            }
     }, [history, userInfo]);
+
 
     const submitHandler = async (e) => {
         e.preventDefault();

@@ -5,7 +5,9 @@ import LandingPage from './screens/LandingPage/LandingPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RegisterPage from './screens/RegisterPage/RegisterPage';
 import LoginPage from './screens/LoginPage/LoginPage';
-import UserCrud from './screens/UserPage/UserCrud';
+import UserOperations from './screens/UserOperations/UserOperations';
+//import UserCrud from './screens/UserPage/UserCrud';
+
 
 function App() {
 
@@ -16,7 +18,7 @@ function App() {
         <Route path='/' element={<LandingPage />} exact />
         <Route path='/login' element={<LoginPage />} exact />
         <Route path='/register' element={<RegisterPage />} exact />
-        <Route path='/user' element={<UserCrud />} exact />
+        <Route path='/user' element={<UserOperations />} exact />
       </Routes>
 
       <Footer />

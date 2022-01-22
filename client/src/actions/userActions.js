@@ -6,9 +6,6 @@ import {
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAIL,
-  USER_LIST_REQUEST,
-  USER_LIST_SUCCESS,
-  USER_LIST_FAIL
 }
   from "../constants/userConstants";
 import axios from "axios";
@@ -67,9 +64,7 @@ export const register = (firstName, lastName, email, age, password, confirmPassw
       config
     );
 
-    dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
-
-    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
+    dispatch({ type: USER_REGISTER_SUCCESS, payload: data }) && dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
@@ -84,7 +79,7 @@ export const register = (firstName, lastName, email, age, password, confirmPassw
 };
 
 //user list
-export const listUsers = () => async (dispatch) => {
+/* export const listUsers = () => async (dispatch) => {
   try {
     dispatch({
       type: USER_LIST_REQUEST});
@@ -96,6 +91,8 @@ export const listUsers = () => async (dispatch) => {
     };
 
     const { data } = await axios.get("/api/user", config);
+
+    //localStorage.setItem("userInfo", JSON.stringify(data));
 
     dispatch({
       type: USER_LIST_SUCCESS,
@@ -112,3 +109,4 @@ export const listUsers = () => async (dispatch) => {
     });
   }
 };
+ */
