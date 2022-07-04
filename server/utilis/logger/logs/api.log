@@ -1,0 +1,155 @@
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:13:48.325Z'
+}
+{
+  message: 'Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User`;',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:13:48.430Z'
+}
+{
+  message: 'Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User`;',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:13:48.743Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:17:30.673Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:18:30.698Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:27:51.780Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:30:09.894Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:31:17.982Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:31:34.119Z'
+}
+{
+  message: 'Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User`;',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:33:41.989Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:34:03.797Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:34:06.480Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:35:07.582Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:36:00.402Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:36:06.276Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:36:08.881Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:36:16.638Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:36:22.382Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:36:24.844Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:36:31.848Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:37:06.334Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:37:10.464Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:37:21.636Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:37:25.329Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:37:56.462Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:38:13.993Z'
+}
+{
+  message: 'Server is running on port 5000...',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:49:53.343Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `passwordd`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:51:13.309Z'
+}
+{
+  message: 'Executing (default): INSERT INTO `Users` (`id`,`firstName`,`lastName`,`email`,`age`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:51:13.454Z'
+}
+{
+  message: "Executing (default): SELECT `id`, `firstName`, `lastName`, `email`, `age`, `passwordd`, `createdAt`, `updatedAt` FROM `Users` AS `User` WHERE `User`.`email` = 'vsznitowski@gmail.com' LIMIT 1;",
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:51:21.914Z'
+}
+{
+  message: 'Executing (default): INSERT INTO `Users` (`id`,`firstName`,`lastName`,`email`,`age`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2022-07-03T18:51:22.019Z'
+}

@@ -14,7 +14,7 @@ const { errorHandler, notFound } = require("./middleware/errorMiddleware.js");
 
 // --------------------------deployment------------------------------
 
-if (process.env.NODE_ENV === "production") {
+if (`${process.env.JWT_SECRET_KEY}` === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/build")));
 
   app.get("*", (req, res) =>

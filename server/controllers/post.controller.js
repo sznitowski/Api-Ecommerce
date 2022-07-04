@@ -11,7 +11,7 @@ function createPost(req, res) {
     const schema = {
         title: {type:'string', optional: false, max: '50'},
         content: {type:'string', optional: false, max: '250'},
-        categoryId: {type:'number', optional: false}
+        categoryId: {type:'number', optional: true}
     }
 
     const v = new validator();

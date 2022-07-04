@@ -67,7 +67,7 @@ function loginUser(req, res) {
                         password: user.password,
                         token: generateToken(user._id)
 
-                    }, process.env.JWT_SECRET , function (err, token) {
+                    }, `${process.env.JWT_SECRET_KEY}` , function (err, token) {
                         res.status(200).json({
                             user,
                             message: "Authentication successful!",
@@ -112,10 +112,10 @@ function findUserById(req, res) {
 
 //FindallUsers Get: /api/user
 function findAllUsers(req, res) {
-    models.User.findAll().then(result => {
+    models.User.findAll().then(data => {
         res.status(200).json({
             message: 'Users list',
-            result
+            data
         });
     }).catch(error => {
         res.status(500).json({
@@ -150,7 +150,7 @@ function updateUser(req, res) {
         })
     }
 
-    models.User.update(updatedUser, { where: { id: id } }).then(result => {
+    models.User.update(updatedUser, { where: { id: id } }).then(data => {
         res.status(200).json({
             message: "User updated successfully",
             User: updatedUser

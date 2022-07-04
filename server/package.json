@@ -4,7 +4,7 @@
   "description": "technical exam fullstack",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -29,8 +29,11 @@
     "fastest-validator": "^1.12.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
-    "nodemon": "^2.0.15",
     "path": "^0.12.7",
-    "sequelize": "^6.12.5"
+    "sequelize": "^6.12.5",
+    "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
   }
 }
